@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3741492441438065700}
   - component: {fileID: 5902238358221805882}
   m_Layer: 7
-  m_Name: Asteroid
+  m_Name: Halferoid
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1013508636, guid: ea6f89c24a17ed240bd5dc283a15a902, type: 3}
+  m_Sprite: {fileID: 1290244972, guid: ea6f89c24a17ed240bd5dc283a15a902, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -157,7 +157,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
 --- !u!114 &5902238358221805882
 MonoBehaviour:
@@ -171,5 +171,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba23f55defe9aa8438d1b7fd50dc6c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 8523161119956630346, guid: 658881069a62d444bbbea9aa085107ad,
+  asteroidPrefab: {fileID: 8523161119956630346, guid: d398b471718793241af844d5cd340655,
     type: 3}
