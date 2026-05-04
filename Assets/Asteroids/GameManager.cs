@@ -7,8 +7,10 @@ namespace Asteroids
         public static GameManager Instance;
         public int asteroidsDestroyed;
         public int maxAsteroids;
+        private int defaultMaxAsteroids;
         public int maxAsteroidsIncrmt;
         public bool gameReset;
+        public int rounds;
 
         void Awake()
         {
@@ -20,16 +22,32 @@ namespace Asteroids
             {
                 Destroy(this.gameObject);
             }
+            
+            defaultMaxAsteroids = maxAsteroids;
         }
 
         private void Update()
         {
-            if (asteroidsDestroyed == maxAsteroids * 4)
+            if (Power.Instance.isOn)
             {
-                Debug.Log("Game Over");
+                if (asteroidsDestroyed == maxAsteroids * 4)
+                {
+                    Debug.Log("Game Over");
+                    rounds++;
+                    gameReset = true;
+                }
+
+                if (gameReset)
+                {
+                    asteroidsDestroyed = 0;
+                    maxAsteroids = defaultMaxAsteroids + maxAsteroidsIncrmt * rounds;
+                    gameReset = false;
+                }
+            }
+            else
+            {
                 asteroidsDestroyed = 0;
-                maxAsteroids += maxAsteroidsIncrmt;
-                gameReset = true;
+                maxAsteroids = defaultMaxAsteroids;
             }
         }
     }

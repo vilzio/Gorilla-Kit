@@ -12,6 +12,14 @@ namespace Asteroids
             rb = GetComponent<Rigidbody2D>();
             rb.AddForce(new Vector3(Random.Range(-100f, 100f), Random.Range(-100f, 100f), 0));
         }
+
+        void Update()
+        {
+            if (Power.Instance.isOn == false)
+            {
+                Destroy(gameObject);
+            }
+        }
         
         void OnTriggerEnter2D(Collider2D other)
         {
@@ -19,7 +27,6 @@ namespace Asteroids
             {
                 Destroy(other.gameObject);
                 Split();
-                //Destroy(gameObject);
             }
         }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Asteroids
 {
@@ -7,16 +8,23 @@ namespace Asteroids
         public GameObject asteroidPrefab;
         private float time;
         public float spawnTime;
+        private float defaultSpawnTime;
         public float spawnTimeDecrmt;
         private int asteroids;
 
+        void Awake()
+        {
+            defaultSpawnTime = spawnTime;
+        }
+        
         private void Update()
         {
+            TogglePower();
+            
             if (GameManager.Instance.gameReset)
             {
                 asteroids = 0;
-                spawnTime -= spawnTimeDecrmt;
-                GameManager.Instance.gameReset = false;
+                spawnTime = defaultSpawnTime - spawnTimeDecrmt * GameManager.Instance.rounds;
             }
 
             time += Time.deltaTime;
@@ -24,6 +32,17 @@ namespace Asteroids
             {
                 time = 0;
                 Spawn();
+            }
+        }
+
+        void TogglePower()
+        {
+            if (Power.Instance.isOn == false)
+            {
+                time = 0;
+                spawnTime = defaultSpawnTime;
+                asteroids = 0;
+                gameObject.SetActive(false);
             }
         }
         
