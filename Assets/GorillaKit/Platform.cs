@@ -1,10 +1,18 @@
+using System;
 using UnityEngine;
 
 namespace GorillaKit
 {
+    [Serializable]
+    public class Point
+    {
+        public Transform point;
+        public float speed;
+    }
+    
     public class Platform : MonoBehaviour
     {
-        public PlatformPointSo[] points;
+        public Point[] points;
         
         private Vector3 destination;
         private int currentPoint;
